@@ -159,6 +159,17 @@ local twwZones = {
 	[2371] = true, -- K'aresh
 }
 
+local mdZones = {
+	[2393] = true, -- Silvermoon City
+	[2395] = true, -- Eversong Woods
+	[2405] = true, -- Voidstorm
+	[2413] = true, -- Harandar
+	[2437] = true, -- Zul'Aman
+	[2444] = true, -- Slayer's Rise
+	[2536] = true, -- Atal'Aman
+	[2537] = true, -- Quel'Thalas
+}
+
 function GatherMateData:PerformMerge(dbs,style, zoneFilter)
 	local filter = nil
 	if zoneFilter and type(zoneFilter) == "string" then
@@ -182,6 +193,8 @@ function GatherMateData:PerformMerge(dbs,style, zoneFilter)
 			filter = dfZones
 		elseif zoneFilter == "TWW" then
 			filter = twwZones
+		elseif zoneFilter == "Midnight" then
+			filter = mdZones
 		end
 	end
 	if dbs["Mines"]    then self:MergeMines(style ~= "Merge",filter) end
